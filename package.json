@@ -5,6 +5,7 @@
   "scripts": {
 		"prestart": "babel-node build/start-message",
 		"start": "npm-run-all --parallel security-check open:src",
+		"dev": "nodemon --watch build --exec npm-run-all open:src",
 		"open:src": "babel-node build/src-server",
 		"security-check": "nsp check",
 		"localtunnel": "lt --port 8080",
