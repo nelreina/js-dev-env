@@ -1,12 +1,12 @@
-const express = require('express');
-const open = require('open');
-const path = require('path');
+import express from 'express';
+import open from 'open';
+import path from 'path';
 
 const port = 8080;
 
 const app = express();
 
-app.get('/', (req, res)=>{
+app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname, '../src/index.html'));
 })
 
