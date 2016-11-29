@@ -4,16 +4,19 @@
   "description": "JavaScript development environment",
   "scripts": {
 		"prestart": "babel-node build/start-message",
-		"start": "npm-run-all --parallel security-check open:src lint:watch test:watch",
+		"start": "npm-run-all --parallel security-check open:src lint:watch test:watch start:mock-api",
 		"dev": "nodemon --watch build --exec npm-run-all --parallel lint:watch open:src",
 		"open:src": "babel-node build/src-server",
 		"lint": "esw webpack.config.*, src, build --color",
 		"lint:watch": "npm run lint -- --watch",
 		"security-check": "nsp check",
 		"localtunnel": "lt --port 8080",
-		"share": "npm-run-all --parallel security-check open:src localtunnel",
+		"share": "npm run localtunnel",
 		"test": "mocha --reporter progress build/test-setup.js \"src/**/*.test.js\"",
-		"test:watch": "npm run test -- --watch"
+		"test:watch": "npm run test -- --watch",
+		"mock:gen": "babel-node build/mock-data-generator",
+		"prestart:mock-api": "npm run mock:gen",
+		"start:mock-api": "json-server --watch src/api/db.json --port 8081"
   },
   "author": "Nelson Reina",
   "license": "MIT",
