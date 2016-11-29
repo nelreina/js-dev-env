@@ -1,5 +1,19 @@
 import './index.css';
-import numeral from 'numeral';
 
-const value = numeral(10000).format('0,0.00');
-console.log(`This value is NAFL ${value}`);
+import { getUsers } from './api/users-api';
+
+getUsers().then(result => {
+	let userBody = "";
+
+	result.forEach((user) => {
+		const { id, firstName, lastName, email } = user;
+		userBody += `<tr>
+		<td><a href="#${id}" data-id=${id} className="deleUser">Delete</a></td>
+			<td>${id}</td>
+			<td>${firstName}</td>
+			<td>${lastName}</td>
+			<td>${email}</td>
+		</tr>`
+	});
+	global.document.getElementById('users').innerHTML = userBody;
+})

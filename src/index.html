@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.css">
 	<title>JS Dev Environment </title>
 </head>
-<body>
-	<h1>JS Dev Environment</h1>
-	<p>Hello World</p>
+<body class="ui container">
+	<h1>Users</h1>
+	<table class="ui table compact">
+		<thead>
+			<th>&nbsp;</th>
+			<th>Id</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+		</thead>
+		<tbody id="users">
+
+		</tbody>
+	</table>
 	<script src="bundle.js"></script>
 </body>
 </html>
