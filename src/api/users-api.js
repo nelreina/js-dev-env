@@ -8,7 +8,9 @@ const onSucess = (response) => response.json();
 const onError = (err) => console.log(err);
 
 const baseUrl = getBaseUrl();
-console.log(chalk.yellow(baseUrl));
+
 const get = (url) => fetch(baseUrl + url).then(onSucess, onError);
+const del = (url) => fetch(baseUrl + url, { method: 'DELETE' }).then(onSucess, onError);
 
 export const getUsers = _ => get('users');
+export const delUser = id => del(`users/${id}`);
