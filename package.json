@@ -16,7 +16,11 @@
 		"test:watch": "npm run test -- --watch",
 		"mock:gen": "babel-node build/mock-data-generator",
 		"prestart:mock-api": "npm run mock:gen",
-		"start:mock-api": "json-server --watch src/api/db.json --port 8081"
+		"start:mock-api": "json-server --watch src/api/db.json --port 8081",
+		"clean:dist": "rimraf ./dist && mkdir dist",
+		"prebuild": "npm-run-all clean:dist test lint",
+		"build": "babel-node build/build.js",
+		"postbuild": "babel-node build/dist-server.js"
   },
   "author": "Nelson Reina",
   "license": "MIT",

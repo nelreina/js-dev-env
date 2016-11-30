@@ -1,1 +1,2 @@
-export const getBaseUrl = () => /localhost/.test(window.location.hostname) ? 'http://localhost:8081/' : '/';
+
+export const getBaseUrl = () => /useMockApi=true/.test(window.location.href) ? 'http://localhost:8081/' : '/';
