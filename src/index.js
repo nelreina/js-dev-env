@@ -4,6 +4,9 @@ import { getUsers, delUser } from './api/users-api';
 
 getUsers().then(result => {
 	let userBody = "";
+	userBody += `<tr>
+	<th colspan="6" class="ui float right">Total: ${result.length}</th>
+</tr>`
 
 	result.forEach((user, idx) => {
 		const { id, firstName, lastName, email } = user;
