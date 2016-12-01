@@ -24,8 +24,7 @@ webpack(webpackConfig).run((err, stats) => {
 		return jsonStats.warnings.map (w => console.log(chalk.yellow(w)));
 	}
 
-	// console.log(`Webpack stats: ${stats}`);
-	console.log(`Webpack stats: ${jsonStats}`);
+	console.log(`Webpack stats: ${stats}`);
 
 	console.log(chalk.green('Build for Production Succesfully ended and place in ./dist!'));
 	return 0;
